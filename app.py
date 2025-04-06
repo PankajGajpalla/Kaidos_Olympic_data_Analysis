@@ -7,8 +7,14 @@ import preprocessor, helper
 import plotly.express as px
 import plotly.figure_factory as ff
 
+import zipfile
 
-df = pd.read_csv('athlete_events.csv')
+with zipfile.ZipFile('athlete_events.csv.zip') as z:
+    with z.open('athlete_events.csv') as f:
+        df = pd.read_csv(f)
+
+
+# df = pd.read_csv('athlete_events.csv')
 region_df = pd.read_csv('noc_regions.csv')
 
 
